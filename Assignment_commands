@@ -1,0 +1,11 @@
+# Load data from a CSV file into a dataframe
+df = spark.read.csv("/Volumes/azure_databricks/default/assignmentdata/location.csv", header=True, inferSchema=True)
+
+# Load data from a Parquet file into a dataframe
+df = spark.read.parquet("path/to/data.parquet")
+
+# Load data from a JSON file into a dataframe
+df = spark.read.json("path/to/data.json")
+
+# Load data from a table in a SQL database using JDBC into a dataframe
+df = spark.read.format("jdbc").option("url", "jdbc:postgresql://localhost:5432/mydatabase").option("dbtable", "mytable").option("user", "myuser").option("password", "mypassword").load()
